@@ -1,6 +1,11 @@
 # Museum Data Project
 
-* In this project,
+* In this project, I created a full working pipeline that consumes data from a Kafka topic, transforms it and uploads it to a Postgres database hosted on RDS
+* This project also includes the setup for the Postgres database
+
+* The data added in the setup describes a museum's exhibitions, departments and floors, along with a rating and request system.
+* The data that is streamed in from Kafka are ratings and requests from customers within the museum
+* The pipeline filters invalid messages - such as ones missing data or interactions outside the museum's opening hours
 
 ## Setup
 
@@ -22,4 +27,3 @@
 1. Reads messages from 'lmnh' topic - logs invalid messages and prints valid messages
 2. Every 100 valid messages are turned into a dataframe which is transformed into two dataframes, one for requests (assistance, emergency) and one for ratings (0-4)
 3. Connects to the database, creates a temporary csv file for the dataframe and then copies from it into the database. This is repeated for both dataframes
-

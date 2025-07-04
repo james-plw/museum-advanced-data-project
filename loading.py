@@ -84,8 +84,6 @@ def consume_message(consumer: Consumer) -> None:
 
         except Exception as e:
             print(f"Unexpected error: {e}")
-            # consumer.close()
-            # print("Consumer closed.")
 
     consumer.close()
     print("Consumer closed.")
