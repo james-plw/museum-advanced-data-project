@@ -89,7 +89,7 @@ def consume_message(consumer: Consumer) -> None:
     print("Consumer closed.")
 
 
-def check_msg_validity(message: dict, key: str) -> str:
+def check_msg_validity(message: dict, key: str) -> str | None:
     '''Checks value of the specified key - at, site, val, or type
     Invalid = missing, wrong type, out of range - returns a string
     Valid - returns None'''
@@ -212,7 +212,7 @@ def transform(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     return request_df, rating_df
 
 
-def upload_to_db(conn: connection, df: pd.DataFrame, table: str) -> pd.DataFrame:
+def upload_to_db(conn: connection, df: pd.DataFrame, table: str) -> pd.DataFrame | int:
     '''Uploads a pandas dataframe to a specified table in the database'''
     cursor = conn.cursor()
 
